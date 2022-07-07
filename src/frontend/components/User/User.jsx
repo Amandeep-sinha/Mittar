@@ -1,14 +1,15 @@
 import React from "react";
 import man from "../../assets/programmer.png";
-import user from "./User.module.css";
-
+import usercss from "./User.module.css";
+import { useSelector } from "react-redux";
 
 function User() {
-  console.log(user);
+  const {user} = useSelector(state => state.auth);
   return (
-    <div className={` d-flex ${user.container}`}>
-      <img src={man} alt="Iser Icon" />
-      <p>User Name</p>
+    <div className={`d-flex ${usercss.container}`}>
+      <img src={man} alt="user Icon" />
+      <h4>{user?.firstName} {user?.lastName}</h4>
+      <span className="username">@{user?.username}</span>
     </div>
   );
 }

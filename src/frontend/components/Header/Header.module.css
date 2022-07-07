@@ -12,6 +12,11 @@
     align-items: center;
 }
 
+.desktop_menu li:hover{
+    cursor: pointer;
+}
+
+
 .nav_container img{
     width: 2rem;
     height: auto;
