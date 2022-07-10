@@ -9,7 +9,6 @@ import {store} from "./frontend/app/store"
 
 // Call make Server
 makeServer();
-console.log(store);
 ReactDOM.render(
   <React.StrictMode> 
     <Provider store={store}>

@@ -7,8 +7,6 @@ function Profile() {
   return (
     <div className={`d-flex ${profile.container}`}>
         <ProfileCard/>
-        <PostsCard/>
-        <PostsCard/>
     </div>
   )
 }

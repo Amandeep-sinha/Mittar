@@ -1,14 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import createpost from "./CreatePost.module.css"
+import man from "../../assets/man.png"
+import { useDispatch } from 'react-redux';
+import { addUserPost } from '../../features/post/postSlice';
 
 function CreatePost() {
-  console.log(createpost);
+  const [postData, setPostData] = useState("");
+  const dispatch = useDispatch();
+
+  const postHandler = ()=>{
+    dispatch(addUserPost(postData));
+    setPostData("")
+  }
+  
   return (
     <div className={`d-flex ${createpost.container}`}>
-      <div className={`d-flex ${createpost.input_wrapper}`}>
-        <i className="bi bi-person-circle"></i>
-        <article>What's in your mind?</article>
+      <div className={`d-flex ${createpost.header}`}>
+      <img src={man} alt="User Icon" />
+      <textarea placeholder="What's in your mind.." value={postData} onChange={(e)=> setPostData(e.target.value)}></textarea>
       </div>
+      <button className='btn btn-primary' onClick={postHandler}>Post</button>
     </div>
   )
 }

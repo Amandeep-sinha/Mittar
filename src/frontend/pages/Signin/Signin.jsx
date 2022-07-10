@@ -17,7 +17,7 @@ function Login() {
 
   useEffect(() => {
     if (token) {
-      navigate("/home");
+      navigate("/");
     }
   },[token]);
     return (
@@ -59,9 +59,9 @@ function Login() {
         </button>
         
         <button className={`btn btn-primary ${logincss.login_btn}`}onClick={() => {
-              setUserDetails({ username: "mramandeepsinha@gmail.com", password: "Abc@123" });
+              setUserDetails({ username: "amandeep_sinha", password: "Abc@123" });
               dispatch(
-                loginHandler({ username: "mramandeepsinha@gmail.com", password: "Abc@123" })
+                loginHandler({ username: "amandeep_sinha", password: "Abc@123" })
               );
             }}
           >

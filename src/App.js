@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from "react-redux";
 import RequireAuth from "./frontend/features/auth/RequireAuth";
+import Modal from "./frontend/components/PostsCard/Modal/Modal";
 
 function App() {
   const {token} = useSelector(state => state.auth);
@@ -18,12 +19,13 @@ function App() {
     <Header/>
     <Routes>
         <Route path="/login" element={<Login/>}/>
-        <Route path="/" element={<MockAPI/>}/>
-        <Route path="/home" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
+        <Route path="/mock" element={<MockAPI/>}/>
+        <Route path="/" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
         <Route path="/profile" element={<RequireAuth token={token}><Profile/></RequireAuth>}/>
         
    </Routes>
    <Navbar/>   
+   <Modal/>
   </>
 );
 }
