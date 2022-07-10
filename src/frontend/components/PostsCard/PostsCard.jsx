@@ -31,7 +31,7 @@ function PostsCard({post}) {
     <div className={` d-flex ${postscard.container}`}>
     <header className={`d-flex ${postscard.header}`}>
         <User username={username} firstName={currentUser?.firstName} lastName={currentUser?.lastName} image={currentUser?.profilepic} />
-        <i className="bi bi-three-dots-vertical" onClick={()=> setEditModal(!editModal)}></i>
+        {username === loggedInUser.username && <i className="bi bi-three-dots-vertical" onClick={()=> setEditModal(!editModal)}></i>}
       </header>
       {editModal && (
           <ul className={postscard.edit_modal}>
@@ -40,7 +40,7 @@ function PostsCard({post}) {
           </ul>
         )}
       <article>{content}</article>
-      <Button />
+      <Button post={post} id={_id}/>
       <PostComment />
     
 </div>

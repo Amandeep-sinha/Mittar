@@ -7,22 +7,35 @@ import { getAllPosts } from '../../features/post/postSlice'
 import { getAllUsers } from '../../features/user/userSlice'
 
 function Home() {
-  const {allPosts} = useSelector(state => state.posts);
+  const {allPosts} = useSelector((state) => state.posts);
+  const { user } = useSelector((state) => state.auth);
+  const [feedPosts, setFeedPosts] = useState([]);
 
-  const feedPosts = [...allPosts].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
 
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    dispatch(getAllPosts())
-    dispatch(getAllUsers())
-  },[])
+    dispatch(getAllPosts());
+    dispatch(getAllUsers());
+  },[]);
+
+  useEffect(() => {
+    if (allPosts) {
+      setFeedPosts(
+        allPosts.filter(
+          (post) =>
+            post.username === user.username ||
+            user.following.find((person) => post.username === person.username)
+        ).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      );
+    }
+  },[user, allPosts]);
   return (
     <section className={`d-flex ${home.container}`}>
         <CreatePost/>
         {feedPosts.map((post) => <PostsCard post={post} key={post._id}/> )}
     </section>
-  )
+  );
 }
 
 export {Home} 
