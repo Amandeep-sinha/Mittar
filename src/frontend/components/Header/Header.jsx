@@ -32,7 +32,7 @@ function Header() {
         {token && <ul className={header.desktop_menu}>
           <li><Link to={"/"}><img src={home} alt="Home" /></Link></li>
           <li><Link to = {"/bookmark"}> <img src={bookmark} alt="" /></Link></li>
-          <li><img src={explore} alt="" /></li>
+          <li><Link to ={"/explore"}> <img src = {explore} alt = "" /> </Link> </li>
           <li><Link to={"/profile"}><img src={user} alt="Profile" /></Link></li>
           <li onClick={()=>{
             dispatch(logoutHandler())

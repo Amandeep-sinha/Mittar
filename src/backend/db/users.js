@@ -36,5 +36,25 @@ export const users = [
     profilepic: "https://res.cloudinary.com/mittar/image/upload/v1657223519/Mittar_assets/man_qe7irt.png",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Anshika",
+    lastName: "Singh",
+    username: "anshika_singh",
+    password: "Abc@123",
+    profilepic: "https://res.cloudinary.com/mittar/image/upload/v1657487433/Mittar_assets/pic5_i40iz1.png",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: uuid(),
+    firstName: "Rohita",
+    lastName: "Reddy",
+    username: "rohita_reddy",
+    password: "Abc@123",
+    profilepic: "https://res.cloudinary.com/mittar/image/upload/v1657487433/Mittar_assets/pic4_z1wt8f.png",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
   }
 ];

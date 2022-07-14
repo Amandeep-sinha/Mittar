@@ -15,7 +15,7 @@ export const loginHandler = createAsyncThunk(
   async ({ username, password }, thunkAPI) => {
     try {
       const response = await loginService({ username, password });
-      console.log(response.data);
+
       return response.data;
 
     } catch (err) {
@@ -75,10 +75,8 @@ const authSlice = createSlice({
     },
     [loginHandler.fulfilled]: (state, action) => {
       state.isLoading = false;
-      console.log(action);
       state.token = action.payload.encodedToken;
       state.user = action.payload.foundUser;
-      console.log(state);
       localStorage.setItem(
         "loginCred",
         JSON.stringify({
