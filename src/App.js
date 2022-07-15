@@ -14,6 +14,7 @@ import Modal from "./frontend/components/PostsCard/Modal/Modal";
 import Bookmark from "./frontend/pages/bookmark/Bookmark";
 import ScrollToTop from "./frontend/customHooks/ScrollToTop";
 import Explore from "./frontend/pages/explore/Explore";
+import UserProfile from "./frontend/pages/user-profile/UserProfile";
 
 function App() {
   const {token} = useSelector(state => state.auth);
@@ -27,6 +28,7 @@ function App() {
         <Route path="/bookmark" element={<RequireAuth token={token}><Bookmark/></RequireAuth>}/>
         <Route path="/mock" element={<MockAPI/>}/>
         <Route path="/" element={<RequireAuth token={token}><Home/></RequireAuth>}/>
+        <Route path="/user-profile/:username" element={<RequireAuth token={token}><UserProfile/></RequireAuth>}/>
         <Route path="/profile" element={<RequireAuth token={token}><Profile/></RequireAuth>}/>
         
    </Routes>

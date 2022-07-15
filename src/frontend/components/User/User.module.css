@@ -8,3 +8,10 @@
     height: 3.5rem;
     border-radius: 100%;
 } 
+.container div:hover{
+    cursor: pointer;
+}
+.username{
+    font-weight: 100;
+    font-size: .8rem;
+}
