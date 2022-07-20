@@ -26,6 +26,15 @@ import {
   editUserHandler,
 } from "./backend/controllers/UserController";
 
+import { addPostCommentHandler,
+  deletePostCommentHandler,
+  downvotePostCommentHandler,
+  editPostCommentHandler,
+  getPostCommentsHandler,
+  upvotePostCommentHandler,
+} from './backend/controllers/CommentsController';
+
+
 export function makeServer({ environment = "development" } = {}) {
   return new Server({
     serializers: {
@@ -72,7 +81,7 @@ export function makeServer({ environment = "development" } = {}) {
 
       // user routes (public)
       this.get("/users", getAllUsersHandler.bind(this));
-      this.get("/users/:userId", getUserHandler.bind(this));
+      this.get("/users/:username", getUserHandler.bind(this));
 
       // user routes (private)
       this.post("users/edit", editUserHandler.bind(this));

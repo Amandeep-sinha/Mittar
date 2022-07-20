@@ -1,5 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit"
-import { getAllPostsService, addPostService, editPostService, deletePostService } from "../../service/postsService";
+import { getAllPostsService, addPostService, editPostService, deletePostService, likePostService, dislikePostService } from "../../service/postsService";
 
 export const getAllPosts = createAsyncThunk(
     "posts/getAllPosts",
@@ -57,7 +57,24 @@ export const deleteUserPost = createAsyncThunk(
             thunkAPI.rejectWithValue(err.response);
         }
     }
+    
 )
+
+export const likeOrDislikePost = createAsyncThunk(
+    "posts/likeOrDislikePost",
+    async({id,isLiked}, thunkAPI) => {
+        try{
+            const token = JSON.parse(localStorage.getItem("loginCred")).token;
+
+            const response = isLiked ? await dislikePostService(id,token): await likePostService(id,token)
+            return response.data.posts;
+        }
+        catch(err){
+            thunkAPI.rejectWithValue(err.response);
+        }
+    }
+)
+
 
 
 export const postSlice = createSlice({
@@ -93,6 +110,9 @@ export const postSlice = createSlice({
             state.allPosts = action.payload;
         },
         [deleteUserPost.fulfilled]: (state, action) => {
+            state.allPosts = action.payload;
+        },
+        [likeOrDislikePost.fulfilled]: (state, action) => {
             state.allPosts = action.payload;
         }
     }
