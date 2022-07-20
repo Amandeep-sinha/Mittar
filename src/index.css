@@ -21,3 +21,6 @@
 body{
     background-color: var(--bg-light);
 } 
+.username{
+    font-size: 0.8rem;
+}
