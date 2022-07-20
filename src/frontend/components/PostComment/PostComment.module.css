@@ -22,15 +22,11 @@
 }
 
 .input_area{  width: 95%;
-    height: 100%;
-    height: auto;
     outline: none;
     padding: 0.255rem;
-}
-
-
-.input_area:empty::before{
-    content: attr(data-placeholder);
+    margin-top: 0.5rem;
+    border: none;
+    resize: none;
 }
 
 .comment_input img{

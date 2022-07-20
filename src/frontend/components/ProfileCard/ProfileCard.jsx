@@ -12,10 +12,11 @@ function ProfileCard() {
 
     const {allUsers} = useSelector(state => state.users);
     const currentUser = allUsers.find(user => user.username === username);
+    console.log(currentUser.profilepic);
   return (
     <div className={profilecard.container}>
         <div className={`d-flex ${profilecard.header}`}>
-        <User username={username} firstName={firstName} lastName={lastName} image={currentUser.profilepic}/>
+        <User username={username} firstName={firstName} lastName={lastName} image={currentUser.profilepic} flag={false}/>
             <span>Edit</span>
         </div>
         <article className={profilecard.description}>
