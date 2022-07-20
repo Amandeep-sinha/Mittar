@@ -1,0 +1,9 @@
+.container{
+    width: 85%;
+    gap: 0.5rem;
+    
+}
+.container img{
+    width: 2rem;
+    height: auto;
+} 
