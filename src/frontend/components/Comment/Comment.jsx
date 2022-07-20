@@ -19,6 +19,7 @@ function Comment({ post, commentUser }) {
   const firstName = userWhoCommented?.firstName;
   const lastName = userWhoCommented?.lastName;
   const profilePic = userWhoCommented?.profilepic;
+  const id = userWhoCommented?._id;
   const dispatch = useDispatch();
 
   const editHandler = () => {
@@ -45,6 +46,7 @@ function Comment({ post, commentUser }) {
           lastName={lastName}
           image={profilePic}
           flag={true}
+          id = {id}
         />
         {user.username === username && (
           <i

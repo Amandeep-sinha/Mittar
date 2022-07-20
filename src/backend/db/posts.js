@@ -32,7 +32,7 @@ export const posts = [
   {
     _id: uuid(),
     content:
-      "Practce makes a man perfect, so we should never stop practicing  PS :) By Practicing you can Master any Skills",
+      "Practice makes a man perfect, so we should never stop practicing  PS :) By Practicing you can Master any Skills",
     likes: {
       likeCount: 16,
       likedBy: [],

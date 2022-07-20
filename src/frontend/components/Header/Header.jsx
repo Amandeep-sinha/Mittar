@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import header from "./Header.module.css";
-import logo from "../../assets/user.png"
+import logo from "../../assets/logo.png"
 import logout from "../../assets/logout.png"
 import home from "../../assets/home.png"
 import explore from "../../assets/explore.png"
